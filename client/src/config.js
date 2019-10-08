@@ -1,4 +1,4 @@
 
 export default {
-  apiBaseUrl: 'http://localhost:5000/api',
+  apiBaseUrl: 'https://full-stack-react-rest-api.herokuapp.com/api',
 };
