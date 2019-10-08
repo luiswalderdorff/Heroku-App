@@ -28,7 +28,7 @@ class Courses extends Component {
   }
 
   getCourseTitles = function() {
-    fetch("http://localhost:5000/api/courses")
+    fetch("https://full-stack-react-rest-api.herokuapp.com/api/courses")
       .then(response => response.json())
       .then(response => {
         let courseInfo = [];

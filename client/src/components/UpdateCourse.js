@@ -23,7 +23,7 @@ class UpdateCourse extends Component {
 
   getCourseInfo = function() {
   	const paramId = this.props.match.params.id;
-    fetch(`http://localhost:5000/api/courses/${paramId}`)
+    fetch(`https://full-stack-react-rest-api.herokuapp.com/api/courses/${paramId}`)
       .then(response => response.json())
       .then(response => {
       	const { context } = this.props;
