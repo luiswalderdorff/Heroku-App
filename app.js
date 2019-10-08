@@ -5,6 +5,7 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan');
 const cors = require('cors');
+const path = require("path")
 
 // Enable All CORS Requests
 app.use(cors());
@@ -20,6 +21,7 @@ const auth = require('basic-auth');
 const bodyParser = require('body-parser')
 
 app.use(bodyParser.json()); // Neede for req.body!!!
+app.use(express.static(path.join(__dirname, "client", "build")))
 
 
 // Testing the connection to the database
@@ -81,6 +83,10 @@ app.use((err, req, res, next) => {
 
 // set our port
 app.set('port', process.env.PORT || 5000);
+
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
 
 // start listening on our port
 const server = app.listen(app.get('port'), () => {
